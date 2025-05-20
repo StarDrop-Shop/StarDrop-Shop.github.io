@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>StarDrop</title>
   <style>
-    /* Reset & basics */
     * {
       margin: 0;
       padding: 0;
@@ -14,8 +13,8 @@
     }
     body {
       line-height: 1.6;
-      color: #333;
       background-color: #f9f9f9;
+      color: #333;
     }
     a {
       color: #0066cc;
@@ -25,14 +24,12 @@
       text-decoration: underline;
     }
 
-    /* Container */
     .container {
       width: 90%;
       max-width: 1100px;
       margin: 0 auto;
     }
 
-    /* Header */
     header {
       background-color: #004080;
       color: white;
@@ -42,6 +39,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
     }
     header h1 {
       font-size: 1.8rem;
@@ -49,18 +47,18 @@
     nav a {
       margin-left: 20px;
       font-weight: 600;
+      color: white;
     }
 
-    /* Hero */
     .hero {
-      background: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fwebsite-background&psig=AOvVaw2V_7zIHW6TZqby5X-yTlqu&ust=1747856743797000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCMi16vXnso0DFQAAAAAdAAAAABAc') no-repeat center center/cover;
+      background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
       height: 400px;
       display: flex;
       justify-content: center;
       align-items: center;
-      color: white;
       text-align: center;
       padding: 0 20px;
+      color: white;
     }
     .hero h2 {
       font-size: 2.8rem;
@@ -72,21 +70,19 @@
       border: none;
       padding: 15px 30px;
       font-size: 1.2rem;
-      cursor: pointer;
       border-radius: 5px;
+      cursor: pointer;
       color: white;
-      transition: background-color 0.3s ease;
     }
     .hero button:hover {
       background-color: #e65c00;
     }
 
-    /* Sections */
     section {
-      padding: 50px 0;
+      padding: 60px 0;
       background-color: white;
-      margin-bottom: 20px;
-      border-radius: 8px;
+      margin-bottom: 30px;
+      border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
     section h3 {
@@ -100,39 +96,45 @@
       margin: 0 auto 20px;
       font-size: 1.1rem;
       line-height: 1.8;
+      text-align: center;
     }
 
-    /* Services */
     .services {
       display: flex;
-      justify-content: space-around;
       flex-wrap: wrap;
       gap: 30px;
+      justify-content: center;
     }
     .service-item {
-      flex: 1 1 250px;
       background: #e6f0ff;
       padding: 25px;
       border-radius: 8px;
+      flex: 1 1 250px;
       text-align: center;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      transition: background-color 0.3s ease;
     }
     .service-item:hover {
       background-color: #cce0ff;
     }
-    .service-item svg {
-      width: 50px;
-      height: 50px;
-      margin-bottom: 15px;
-      fill: #004080;
-    }
-    .service-item h4 {
-      margin-bottom: 10px;
-      color: #003366;
+
+    .facts {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      text-align: center;
     }
 
-    /* Contact form */
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 20px;
+    }
+    .socials a {
+      font-size: 1.2rem;
+      color: #004080;
+    }
+
     form {
       max-width: 600px;
       margin: 0 auto;
@@ -140,20 +142,11 @@
       flex-direction: column;
       gap: 15px;
     }
-    label {
-      font-weight: 600;
-      margin-bottom: 5px;
-      display: block;
-    }
-    input[type="text"],
-    input[type="email"],
-    textarea {
+    input, textarea {
       padding: 12px;
       border: 1px solid #ccc;
       border-radius: 5px;
       font-size: 1rem;
-      resize: vertical;
-      width: 100%;
     }
     button[type="submit"] {
       background-color: #004080;
@@ -163,13 +156,11 @@
       border-radius: 5px;
       font-size: 1.1rem;
       cursor: pointer;
-      transition: background-color 0.3s ease;
     }
     button[type="submit"]:hover {
       background-color: #003366;
     }
 
-    /* Footer */
     footer {
       background-color: #222;
       color: #ccc;
@@ -178,7 +169,6 @@
       font-size: 0.9rem;
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
       header .container {
         flex-direction: column;
@@ -189,7 +179,6 @@
       }
       .services {
         flex-direction: column;
-        align-items: center;
       }
     }
   </style>
@@ -197,10 +186,12 @@
 <body>
   <header>
     <div class="container">
-      <h1>StarDrop</h1>
+      <h1>Stardrop</h1>
       <nav>
         <a href="#about">About</a>
         <a href="#services">Services</a>
+        <a href="#facts">What We Do</a>
+        <a href="#shop">Shop</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -208,52 +199,80 @@
 
   <section class="hero">
     <div>
-      <h2>Welcome</h2>
+      <h2>Welcome!</h2>
       <button onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">Get in Touch</button>
     </div>
   </section>
 
   <section id="about" class="container">
     <h3>About Us</h3>
-    <p>We are a team of smart and dedicated people, selling for better prices</p>
+    <p>We are a passionate team that builds solutions for modern prices.</p>
   </section>
 
   <section id="services" class="container">
     <h3>Our Services</h3>
     <div class="services">
       <div class="service-item">
-        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="32" cy="32" r="30" stroke="none"/></svg>
-        <h4>Consulting</h4>
-        <p>Expert advice to help you make the right business decisions.</p>
+        <h4>Custom Solutions</h4>
+        <p>Tailor-made software and tech tools built for your needs.</p>
       </div>
       <div class="service-item">
-        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="12" y="12" width="40" height="40" stroke="none"/></svg>
-        <h4>Development</h4>
-        <p>Custom software and web solutions built to fit your needs.</p>
+        <h4>Web Design</h4>
+        <p>Modern, mobile-friendly websites that reflect your brand.</p>
       </div>
       <div class="service-item">
-        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="32 12 12 52 52 52" stroke="none"/></svg>
-        <h4>Support</h4>
-        <p>Reliable support and maintenance services for peace of mind.</p>
+        <h4>Ongoing Support</h4>
+        <p>We stay by your side to ensure long-term success and stability.</p>
       </div>
     </div>
   </section>
 
-<section id="contact" class="container">
-  <h3>Contact Us</h3>
-  <form action="https://formsubmit.co/koetshop@gmail.com" method="POST">
-  
-    <input type="hidden" name="_captcha" value="false">
+  <section id="facts" class="container">
+    <h3>What We Do</h3>
+    <div class="facts">
+      <p>✅ We help people get what they want</p>
+      <p>✅ We offer better prices than others</p>
+      <p>✅ We believe in clean, fast-loading websites.</p>
+      <p>✅ 100% customer satisfaction is our goal.</p>
+    </div>
+  </section>
 
-    <label for="name">Name</label>
-    <input id="name" type="text" name="name" placeholder="Your full name" required />
+  <section id="shop" class="container">
+    <h3>Visit Our Shop</h3>
+    <p>Check out our awesome products and services!</p>
+    <p><a href="https://yourshoplink.com" target="_blank">Click here to visit our shop →</a></p>
+  </section>
 
-    <label for="email">Email</label>
-    <input id="email" type="email" name="email" placeholder="Your email address" required />
+  <section class="container">
+    <h3>Follow Us</h3>
+    <div class="socials">
+      <a href="https://instagram.com/yourusername" target="_blank">Instagram</a>
+      <a href="https://twitter.com/yourusername" target="_blank">Twitter</a>
+      <a href="https://facebook.com/yourusername" target="_blank">Facebook</a>
+      <a href="https://tiktok.com/@stardroppers" target="_blank">TikTok</a>
+    </div>
+  </section>
 
-    <label for="message">Message</label>
-    <textarea id="message" name="message" rows="5" placeholder="Your message here" required></textarea>
+  <section id="contact" class="container">
+    <h3>Contact Us</h3>
+    <form action="https://formsubmit.co/koetshop@gmail.com" method="POST">
+      <input type="hidden" name="_captcha" value="false">
 
-    <button type="submit">Send Message</button>
-  </form>
-</section>
+      <label for="name">Name</label>
+      <input id="name" type="text" name="name" placeholder="Your name" required />
+
+      <label for="email">Email</label>
+      <input id="email" type="email" name="email" placeholder="you@example.com" required />
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" placeholder="How can we help you?" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 StarDrop. All rights reserved.
+  </footer>
+</body>
+</html>
