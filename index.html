@@ -2,288 +2,181 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>StarDrop</title>
+  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/7/70/User_icon_BLACK-01.png" type="image/x-icon" />
   <style>
-    * {
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-    body {
-      line-height: 1.6;
       background-color: #f9f9f9;
       color: #333;
-    }
-    a {
-      color: #0066cc;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .container {
-      width: 90%;
-      max-width: 1100px;
-      margin: 0 auto;
     }
 
     header {
       background-color: #004080;
       color: white;
-      padding: 20px 0;
-    }
-    header .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    header h1 {
-      font-size: 1.8rem;
-    }
-    nav a {
-      margin-left: 20px;
-      font-weight: 600;
-      color: white;
+      padding: 40px 20px;
+      text-align: center;
     }
 
-    .hero {
-      background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
-      height: 400px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    header img {
+      height: 60px;
+      vertical-align: middle;
+    }
+
+    header h1 {
+      display: inline-block;
+      margin-left: 15px;
+      font-size: 2.5rem;
+    }
+
+    nav {
+      background-color: #022f5c;
+      padding: 15px;
       text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 60px auto;
       padding: 0 20px;
-      color: white;
-    }
-    .hero h2 {
-      font-size: 2.8rem;
-      margin-bottom: 20px;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
-    }
-    .hero button {
-      background-color: #ff6600;
-      border: none;
-      padding: 15px 30px;
-      font-size: 1.2rem;
-      border-radius: 5px;
-      cursor: pointer;
-      color: white;
-    }
-    .hero button:hover {
-      background-color: #e65c00;
     }
 
     section {
-      padding: 60px 0;
-      background-color: white;
-      margin-bottom: 30px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 60px;
     }
-    section h3 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 30px;
+
+    h2, h3 {
       color: #004080;
     }
-    section p {
-      max-width: 700px;
-      margin: 0 auto 20px;
-      font-size: 1.1rem;
-      line-height: 1.8;
-      text-align: center;
-    }
 
-    .services {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      justify-content: center;
-    }
-    .service-item {
-      background: #e6f0ff;
-      padding: 25px;
-      border-radius: 8px;
-      flex: 1 1 250px;
-      text-align: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .service-item:hover {
-      background-color: #cce0ff;
-    }
-
-    .facts {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      text-align: center;
-    }
-
-    .socials {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      margin-top: 20px;
-    }
     .socials a {
-      font-size: 1.2rem;
+      display: inline-block;
+      margin: 10px;
       color: #004080;
+      text-decoration: none;
+      font-weight: bold;
     }
 
-    form {
-      max-width: 600px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-    input, textarea {
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 1rem;
-    }
-    button[type="submit"] {
-      background-color: #004080;
-      color: white;
-      padding: 15px;
-      border: none;
-      border-radius: 5px;
-      font-size: 1.1rem;
-      cursor: pointer;
-    }
-    button[type="submit"]:hover {
-      background-color: #003366;
+    .image-banner img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 40px;
     }
 
     footer {
-      background-color: #222;
-      color: #ccc;
+      background-color: #022f5c;
+      color: white;
       text-align: center;
-      padding: 20px 0;
-      font-size: 0.9rem;
+      padding: 25px 20px;
     }
 
-    @media (max-width: 768px) {
-      header .container {
-        flex-direction: column;
-        text-align: center;
-      }
-      nav {
-        margin-top: 10px;
-      }
-      .services {
-        flex-direction: column;
-      }
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    form input, form textarea {
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    form button {
+      padding: 12px;
+      background-color: #004080;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #003060;
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="container">
-      <h1>Stardrop</h1>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#facts">What We Do</a>
-        <a href="shop.html">Shop</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
+    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Logo" />
+    <h1>Stardrop</h1>
   </header>
 
-  <section class="hero">
-    <div>
-      <h2>Welcome!</h2>
-      <button onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">Get in Touch</button>
-    </div>
-  </section>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#shop">Shop</a>
+    <a href="#contact">Contact</a>
+    <a href="#socials">Socials</a>
+  </nav>
+
+  <div class="image-banner">
+    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="Business Showcase" />
+  </div>
 
   <section id="about" class="container">
-    <h3>About Us</h3>
-    <p>We are a passionate team that builds solutions for modern prices.</p>
-  </section>
-
-  <section id="services" class="container">
-    <h3>Our Services</h3>
-    <div class="services">
-      <div class="service-item">
-        <h4>Cost</h4>
-        <p>Products for the best prices</p>
-      </div>
-      <div class="service-item">
-        <h4>Web Design</h4>
-        <p>Made by @Stardroppers in one day without help</p>
-      </div>
-      <div class="service-item">
-        <h4>Ongoing Support</h4>
-        <p>We stay by your side to ensure long-term success and stability.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="facts" class="container">
-    <h3>What We Do</h3>
-    <div class="facts">
-      <p>✅ We help people get what they want</p>
-      <p>✅ We offer better prices than others</p>
-      <p>✅ We believe in clean, fast-loading websites.</p>
-      <p>✅ 100% customer satisfaction is our goal.</p>
-    </div>
+    <h2>About Us</h2>
+    <p>We are a passionate team dedicated to delivering the best products for our customers</p>
   </section>
 
   <section id="shop" class="container">
-  <h3>Visit Our Shop</h3>
-  <p>Check out our awesome products and services!</p>
-  <p><a href="shop.html">Click here to visit our shop →</a></p>
-</section>
+    <h3>Visit Our Shop</h3>
+    <p>Check out our awesome products!</p>
+    <p><a href="shop.html">Click here to visit our shop →</a></p>
+  </section>
 
-  <section class="container">
+  <section id="socials" class="container">
     <h3>Follow Us</h3>
     <div class="socials">
-      <a href="https://instagram.com/yourusername" target="_blank">Instagram</a>
-      <a href="https://twitter.com/yourusername" target="_blank">Twitter</a>
-      <a href="https://facebook.com/yourusername" target="_blank">Facebook</a>
-      <a href="https://tiktok.com/@stardroppers" target="_blank">TikTok</a>
+      <a href="https://instagram.com" target="_blank">Instagram</a>
+      <a href="https://twitter.com" target="_blank">Twitter</a>
+      <a href="https://facebook.com" target="_blank">Facebook</a>
+      <a href="https://tiktok.com/stardroppers" target="_blank">Tiktok</a>
     </div>
   </section>
 
   <section id="contact" class="container">
     <h3>Contact Us</h3>
-    <form action="https://formsubmit.co/koetshop@gmail.com" method="POST">
-      <input type="hidden" name="_captcha" value="false">
-
-      <label for="name">Name</label>
-      <input id="name" type="text" name="name" placeholder="Your name" required />
-
-      <label for="email">Email</label>
-      <input id="email" type="email" name="email" placeholder="you@example.com" required />
-
-      <label for="message">Message</label>
-      <textarea id="message" name="message" rows="5" placeholder="How can we help you?" required></textarea>
-
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" rows="5" required></textarea>
       <button type="submit">Send Message</button>
     </form>
   </section>
 
   <footer>
-    &copy; 2025 StarDrop. All rights reserved.
+    <p>&copy; 2025 Your Business Name. All rights reserved.</p>
   </footer>
-<script>
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
-      }
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
     });
-  });
-</script>
+  </script>
 </body>
 </html>
