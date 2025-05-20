@@ -1,40 +1,261 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>StarDrop</title>
   <style>
+    /* Reset & basics */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
     body {
-      background-color: #0f172a;
-      color: #f8fafc;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 50px;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f9f9f9;
     }
-    h1 {
-      font-size: 3em;
-    }
-    p {
-      font-size: 1.2em;
-      max-width: 600px;
-      margin: 20px auto;
-    }
-    .button {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 12px 24px;
-      background-color: #3b82f6;
-      color: white;
+    a {
+      color: #0066cc;
       text-decoration: none;
-      border-radius: 6px;
-      font-weight: bold;
     }
-    .button:hover {
-      background-color: #2563eb;
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Container */
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      background-color: #004080;
+      color: white;
+      padding: 20px 0;
+    }
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      font-size: 1.8rem;
+    }
+    nav a {
+      margin-left: 20px;
+      font-weight: 600;
+    }
+
+    /* Hero */
+    .hero {
+      background: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fwebsite-background&psig=AOvVaw2V_7zIHW6TZqby5X-yTlqu&ust=1747856743797000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCMi16vXnso0DFQAAAAAdAAAAABAc') no-repeat center center/cover;
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .hero h2 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+    }
+    .hero button {
+      background-color: #ff6600;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      border-radius: 5px;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+    .hero button:hover {
+      background-color: #e65c00;
+    }
+
+    /* Sections */
+    section {
+      padding: 50px 0;
+      background-color: white;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    section h3 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #004080;
+    }
+    section p {
+      max-width: 700px;
+      margin: 0 auto 20px;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    /* Services */
+    .services {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    .service-item {
+      flex: 1 1 250px;
+      background: #e6f0ff;
+      padding: 25px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: background-color 0.3s ease;
+    }
+    .service-item:hover {
+      background-color: #cce0ff;
+    }
+    .service-item svg {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 15px;
+      fill: #004080;
+    }
+    .service-item h4 {
+      margin-bottom: 10px;
+      color: #003366;
+    }
+
+    /* Contact form */
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    label {
+      font-weight: 600;
+      margin-bottom: 5px;
+      display: block;
+    }
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+      resize: vertical;
+      width: 100%;
+    }
+    button[type="submit"] {
+      background-color: #004080;
+      color: white;
+      padding: 15px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button[type="submit"]:hover {
+      background-color: #003366;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #222;
+      color: #ccc;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header .container {
+        flex-direction: column;
+        text-align: center;
+      }
+      nav {
+        margin-top: 10px;
+      }
+      .services {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to StarDrop!</h1>
-  <p>This is your brand new website, built completely for free using GitHub Pages. You can customize it however you want!</p>
-</body>
-</html>
+  <header>
+    <div class="container">
+      <h1>StarDrop</h1>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div>
+      <h2>Welcome</h2>
+      <button onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">Get in Touch</button>
+    </div>
+  </section>
+
+  <section id="about" class="container">
+    <h3>About Us</h3>
+    <p>We are a team of smart and dedicated people, selling for better prices</p>
+  </section>
+
+  <section id="services" class="container">
+    <h3>Our Services</h3>
+    <div class="services">
+      <div class="service-item">
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="32" cy="32" r="30" stroke="none"/></svg>
+        <h4>Consulting</h4>
+        <p>Expert advice to help you make the right business decisions.</p>
+      </div>
+      <div class="service-item">
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="12" y="12" width="40" height="40" stroke="none"/></svg>
+        <h4>Development</h4>
+        <p>Custom software and web solutions built to fit your needs.</p>
+      </div>
+      <div class="service-item">
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="32 12 12 52 52 52" stroke="none"/></svg>
+        <h4>Support</h4>
+        <p>Reliable support and maintenance services for peace of mind.</p>
+      </div>
+    </div>
+  </section>
+
+<section id="contact" class="container">
+  <h3>Contact Us</h3>
+  <form action="https://formsubmit.co/koetshop@gmail.com" method="POST">
+    <!-- Replace YOUR_EMAIL@example.com with your real email -->
+
+    <!-- Prevent spam -->
+    <input type="hidden" name="_captcha" value="false">
+
+    <label for="name">Name</label>
+    <input id="name" type="text" name="name" placeholder="Your full name" required />
+
+    <label for="email">Email</label>
+    <input id="email" type="email" name="email" placeholder="Your email address" required />
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="5" placeholder="Your message here" required></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+</section>
